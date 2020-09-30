@@ -20,7 +20,13 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "ts-node-dev --respawn src/index.ts",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "deploy": "gcloud app deploy",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "start": "node ./dist/main.js",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "test": "repo-tools test app -- dist/main.js",
+    "gcp-build": "npm run build"
   }
 }
